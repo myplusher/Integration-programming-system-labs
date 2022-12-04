@@ -6,7 +6,9 @@ import javax.xml.bind.Marshaller;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -34,6 +36,14 @@ public class Main {
                     State state = new State();
                     state.id = Instant.now().getEpochSecond();
                     state.time = new Date();
+
+                    String[] anArray = new String[2];
+                    anArray[0] = "градусы цельсия";
+                    anArray[1] = "проценты";
+
+                    System.out.println("Выберите id сенсора, для которого хотите добавить данные");
+
+
 
 
                     try {
