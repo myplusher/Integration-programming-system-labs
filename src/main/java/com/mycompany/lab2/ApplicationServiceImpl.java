@@ -4,10 +4,9 @@
  */
 package com.mycompany.lab2;
 
+import jakarta.ejb.EJB;
 import jakarta.jws.WebService;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 /**
  *
@@ -15,20 +14,33 @@ import java.util.Set;
  */
 @WebService (endpointInterface = "com.mycompany.lab2.ApplicationService")
 public class ApplicationServiceImpl implements ApplicationService{
-    private static Map roots = new HashMap();
+    
+    @EJB
+    private StateSessionBeanLocal bean;
+
     @Override
-    public Root getRoot(int id){
-        return (Root)roots.get(id); 
+    public State getState(long id) {
+        return new State();
     }
+
     @Override
-    public Root[] getAllRoot(){
-        Set ids = roots.keySet();
-        Root[] root = new Root[ids.size()];
-        int i = 0;
-        for (Object id : ids){
-            root[i] = (Root)roots.get((Integer)id);
-            i++;
-        }
-        return root;
+    public State[] getAllState() {
+        List<State> issueList = this.bean.getStates();
+        State[] issues = new State[issueList.size()];
+        State[] array = issueList.toArray(issues);
+        return array;
     }
+
+    @Override
+    public boolean addState(State s) {
+        bean.addState(s);
+        return true;
+    }
+
+    @Override
+    public boolean deleteState(long id) {
+        return false;
+    }
+    
+    
 }

@@ -4,15 +4,16 @@
  */
 package com.mycompany.lab2;
 
-import java.util.Date;
+import jakarta.ejb.Local;
 import java.util.List;
 
 /**
  *
  * @author Полина
  */
-public class State {
-    long id;
-    List<SensorValue> sensorValues;
-    Date time;    
+
+@Local
+public interface StateSessionBeanLocal {
+    public List<State> addState(State state);
+    public List<State> getStates();
 }

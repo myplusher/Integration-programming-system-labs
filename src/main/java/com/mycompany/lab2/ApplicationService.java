@@ -14,7 +14,14 @@ import jakarta.jws.soap.SOAPBinding;
 @SOAPBinding (style = SOAPBinding.Style.RPC)
 public interface ApplicationService {
     @WebMethod
-    public Root getRoot(int id);
+    public State getState(long id);
+    
     @WebMethod
-    public Root[] getAllRoot();
+    public State[] getAllState();
+    
+    @WebMethod
+    public boolean addState(State i);
+	
+    @WebMethod
+    public boolean deleteState(long id);
 }
