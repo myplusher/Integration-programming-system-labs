@@ -1,10 +1,12 @@
 com\mycompany\lab2\Application.class
-com\mycompany\lab2\ApplicationService.class
-com\mycompany\lab2\ApplicationServiceImpl.class
+com\mycompany\lab2\StateSessionBeanLocal.class
 com\mycompany\lab2\State.class
 com\mycompany\lab2\Mechamism.class
 com\mycompany\lab2\Location.class
-com\mycompany\lab2\JakartaRestConfiguration.class
 com\mycompany\lab2\resources\JakartaEE9Resource.class
 com\mycompany\lab2\Root.class
 com\mycompany\lab2\SensorValue.class
+com\mycompany\lab2\ApplicationService.class
+com\mycompany\lab2\ApplicationServiceImpl.class
+com\mycompany\lab2\JakartaRestConfiguration.class
+com\mycompany\lab2\StateSessionBean.class
