@@ -16,7 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Web {
-    private static final String API_ROOT = "http://desktop-0c0ducf:8080/lab2-114208892494867541476.0-SNAPSHOT/ApplicationServiceImplService";
+    private static final String API_ROOT = "http://desktop-f9dh7lb:8080/lab2-18242353545104575813.0-SNAPSHOT/ApplicationServiceImplService";
 
     public static String addState(String state) throws MalformedURLException, IOException, MalformedURLException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -34,7 +34,7 @@ public class Web {
                 "        <ns2:addState xmlns:ns2=\"http://lab2.mycompany.com/\">\n" +
                             state +
                 "           </arg0>   \n" +
-                "        </ns2:addIssue>\n" +
+                "        </ns2:addState>\n" +
                 "    </S:Body>\n" +
                 "</S:Envelope>";
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -44,7 +44,7 @@ public class Web {
 
         httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
         httpURLConnection.setRequestProperty("Content-Type", "text/xml; charset=utf-8");
-        httpURLConnection.setRequestProperty("SOAPAction", "addCity");
+        httpURLConnection.setRequestProperty("SOAPAction", "addState");
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setDoInput(true);
@@ -88,7 +88,7 @@ public class Web {
 
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
             httpURLConnection.setRequestProperty("Content-Type", "text/xml; charset=utf-8");
-            httpURLConnection.setRequestProperty("SOAPAction", "getAllCities");
+            httpURLConnection.setRequestProperty("SOAPAction", "getStates");
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
@@ -105,7 +105,7 @@ public class Web {
                 sb.append(responseString);
             }
 
-            result = sb.toString().substring(183, sb.toString().length()-58);
+            result = sb.toString().substring(182, sb.toString().length()-57);
         } catch (IOException e) {
             System.out.println(e);
         }
