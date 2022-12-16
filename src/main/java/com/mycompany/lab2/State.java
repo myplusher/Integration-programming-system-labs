@@ -5,7 +5,10 @@
 package com.mycompany.lab2;
 
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,11 +16,15 @@ import java.util.List;
  *
  * @author Полина
  */
-@XmlRootElement(name = "Issue")
+@XmlRootElement(name = "State")
 public class State {
     long id;
     List<SensorValue> sensorValues;
-    Date time;   
+    Date time;
+
+    public State(){
+        this.sensorValues = new ArrayList<>();
+    }
 
     public long getId() {
         return id;
@@ -32,7 +39,8 @@ public class State {
         return sensorValues;
     }
 
-    @XmlElement
+    @XmlElementWrapper(name = "sensorValues")
+    @XmlElement(name = "sensorValue")
     public void setSensorValues(List<SensorValue> sensorValues) {
         this.sensorValues = sensorValues;
     }

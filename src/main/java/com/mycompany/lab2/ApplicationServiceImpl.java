@@ -6,6 +6,9 @@ package com.mycompany.lab2;
 
 import jakarta.ejb.EJB;
 import jakarta.jws.WebService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 
 /**
@@ -14,7 +17,8 @@ import java.util.List;
  */
 @WebService (endpointInterface = "com.mycompany.lab2.ApplicationService")
 public class ApplicationServiceImpl implements ApplicationService{
-    
+
+    Logger LOG = LoggerFactory.getLogger (ApplicationServiceImpl.class);
     @EJB
     private StateSessionBeanLocal bean;
 
@@ -33,6 +37,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Override
     public boolean addState(State s) {
+        LOG.info(s.toString());
         bean.addState(s);
         return true;
     }
