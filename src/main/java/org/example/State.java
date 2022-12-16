@@ -5,6 +5,7 @@
 package org.example;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  *
  * @author Полина
  */
-@XmlRootElement
+@XmlRootElement(name = "State")
 public class State {
     long id;
     List<SensorValue> sensorValues;
@@ -32,7 +33,8 @@ public class State {
         return sensorValues;
     }
 
-    @XmlElement
+    @XmlElementWrapper(name = "sensorValues")
+    @XmlElement(name = "sensorValue")
     public void setSensorValues(List<SensorValue> sensorValues) {
         this.sensorValues = sensorValues;
     }

@@ -18,19 +18,17 @@ public class Main {
 
         do {
             System.out.println("-----------------------------\n" +
-                    "Выберите действие: \n" +
-                    "1 - Список записей \n" +
-                    "2 - Добавить запись \n" +
-                    "3 - Получить запись \n" +
-                    "4 - Удалить запись \n" +
-                    "0 - Выход \n"
+                    "Select an action: \n" +
+                    "1 - List of entries \n" +
+                    "2 - Add an entry \n" +
+                    "0 - Exit \n"
             );
             in = keyboard.nextInt();
 
             switch (in) {
                 case 1:
-                    String issues = Web.getStates();
-                    System.out.println(issues);
+                    String states = Web.getStates();
+                    System.out.println(states);
                     break;
                 case 2:
                     State state = new State();
@@ -39,30 +37,30 @@ public class Main {
                     state.sensorValues = new ArrayList<>();
 
                     String[] anArray = new String[2];
-                    anArray[0] = "градусы цельсия";
-                    anArray[1] = "проценты";
+                    anArray[0] = "Celsius degree"; //градусы Цельсия
+                    anArray[1] = "percentages";  //проценты
 
                     int command = 0;
                     while(true) {
-                        System.out.println("Выберите id сенсора, для которого хотите добавить данные");
-                        System.out.println("Для выхода введите -1");
+                        System.out.println("Select id sensor for adding data");
+                        System.out.println("To exit, enter -1");
                         for (int i = 0; i < anArray.length; i++) {
                             if (i == 0)
-                                System.out.println(i + " Температура в градусах цельсия");
+                                System.out.println(i + " Temperature, C");
                             if (i == 1)
-                                System.out.println(i + " Влажность в процентах");
+                                System.out.println(i + " Humidity, %");
                         }
                         command = keyboard.nextInt();
                         if (command == -1)
                             break;
                         if (command < 0 || command >= anArray.length) {
-                            System.out.println("Введите корректное значение из списка");
+                            System.out.println("Enter the correct value from the list"); //Введите корректное значение из списка
                             continue;
                         }
                         SensorValue sv = new SensorValue();
                         sv.id = command;
                         sv.data_type = anArray[command];
-                        System.out.println("Введите показатель сенсора");
+                        System.out.println("Enter the sensor value");
                         sv.value = keyboard.nextInt();
 
                         state.sensorValues.add(sv);
@@ -86,7 +84,7 @@ public class Main {
 
                     break;
                 default:
-                    System.out.println("Без реализации");
+                    System.out.println("Without realization");
             }
 
         } while (in != 0);

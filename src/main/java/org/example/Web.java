@@ -16,7 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Web {
-    private static final String API_ROOT = "http://desktop-f9dh7lb:8080/lab2-18242353545104575813.0-SNAPSHOT/ApplicationServiceImplService";
+    private static final String API_ROOT = "http://laptop-papjm70t:8080/lab2-17092039414417223438.0-SNAPSHOT/ApplicationServiceImplService?wsdl";
 
     public static String addState(String state) throws MalformedURLException, IOException, MalformedURLException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
